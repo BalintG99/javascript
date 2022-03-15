@@ -1,0 +1,56 @@
+<%- include('header') %>
+
+<div class="container">
+	<h1> Jármű legénységének szerkesztése: </h1>
+	
+	<div class="row">
+		<div class="col-6 col-lg-3">
+		Kiválasztott jármű:
+		</div>
+		<div class="col">
+			<%= car.tipus + " (" + car.rendszam + ")" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-lg-3">
+		Férőhelyek száma:
+		</div>
+		<div class="col">
+			<%= car.ferohely %>
+		</div>
+	</div>
+	<h3>Aktuális személyzet:</h3>
+
+	<% crewmember.forEach(function(utas){ %>
+
+	<div class="row">
+		<div class="col-6 col-lg-3">
+		<%= utas.nev %>
+		</div>
+		<div class="col">
+			<a href="/car/removecrewmember/<%= car._id %>/<%= utas._id %>"><button type="button" class="btn btn-danger"><i class="fas fa-user-minus"></i></button></a>
+		</div>
+	</div>
+
+	<% }); %>
+
+	<form method="POST">
+	<div class="form-row">
+	 <div class="form-col ">
+		 <input type="hidden" id="carid" name="carid" id="carid" value="<%= car._id %>">
+
+		 <label for="ujUtasid">Új hozzáadása:</label>
+		 <select id="ujUtasid" name="ujUtasid" class="form-control">
+		 <% freecrew.forEach(function(ujUtas){ %>
+		 <option value="<%= ujUtas._id %>"> <%= ujUtas.nev %> </option>
+		 <% }); %>
+     	 </select>
+
+		 <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i></button>
+
+    </div>
+	</div>
+	</form>
+</div>
+
+<% include('footer') %>

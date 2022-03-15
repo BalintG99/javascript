@@ -1,0 +1,37 @@
+<%- include('header') %>
+
+
+<div class="container">
+	<h1> Munkatárs adatainak szerkesztése: </h1>
+	<form method="POST">
+	
+	<p><div class="form-group row">
+		<label class="col-3 col-form-label">Kiválasztott munkatárs: </label>
+		<div class="col-6 col-lg-3">
+			<input type="text" class="form-control" placeholder="<%= crewmember.nev %> (<%= crewmember.beosztas %>)" readonly>
+		</div>
+	</div></p>
+	
+	<p><div class="form-group row">
+		<label for="nev" class="col-3 col-form-label">Név módosítása: </label>
+		<div class="col-6 col-lg-3">
+			<input type="text" class="form-control" id="nev" name="nev"
+                   pattern="[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúű]+( [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúű]+)+"
+                   value="<%= (typeof crewmember.nev === 'undefined') ? '' : crewmember.nev %>" required="required">
+		</div>
+	</div></p>
+	<p><div class="form-group row">
+		<label for="beosztas" class="col-3 col-form-label">Beosztás módosítása: </label>
+		<div class="col-6 col-lg-3">
+			<input type="text" class="form-control" id="beosztas" name="beosztas"
+                   value="<%= (typeof crewmember.beosztas === 'undefined') ? '' : crewmember.beosztas %>">
+		</div>
+	</div></p>
+
+	<p><button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Érvényesít </button>
+	<a href="/crew/list"><button type="button" class="btn btn-danger">Mégse</button></a></p>
+
+	</form>
+</div>
+
+<% include('footer') %>

@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+<div class="container">
+	<h1> Új munkatárs felvétele:</h1>
+	
+	<form method="POST">
+		<p><div class="form-group row">
+			<label for="nev" class="col-3 col-lg-2 col-form-label">Név: </label>
+			<div class="col-9 col-lg-5">
+				<input type="text" class="form-control" id="nev" name="nev" required="required"
+                       pattern="[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúű]+( [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúű]+)+">
+			</div>
+		</div></p>
+		<p><div class="form-group row">
+			<label for="beosztas" class="col-3 col-lg-2 col-form-label">Beosztás: </label>
+			<div class="col-9 col-lg-5">
+				<input type="text" class="form-control" id="beosztas" name="beosztas">
+			</div>
+		</div></p>
+
+	<p><button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Hozzáad</button>
+	<a href="/crew/list"><button type="button" class="btn btn-danger">Mégse</button></a></p>
+	</form>
+</div>
+
+<% include('footer') %>

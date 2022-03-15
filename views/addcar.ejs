@@ -1,0 +1,38 @@
+<%- include('header')%>
+
+
+
+<div class="container">
+	<h1> Jármű hozzáadása: </h1>
+	
+	<form method="POST">
+		<p><div class="form-group row">
+			<label for="rendszambetuk" class="col-3 col-lg-2 col-form-label">Rendszám: </label>
+			<div class="col-3 col-lg-1">
+				<input type="text" maxlength="3" class="form-control" id="rendszambetuk" name="rendszambetuk" required="required" pattern="[a-zA-Z]{3}">
+			</div>
+			
+			<div class="col-3 col-lg-1">
+				<input type="text" maxlength="3" class="form-control" id="rendszamszamok" name="rendszamszamok" pattern="[0-9]{3}" required="required">
+			</div>
+		</div></p>
+
+		<p><div class="form-group row">
+			<label for="tipus" class="col-3 col-lg-2 col-form-label">Típus: </label>
+			<div class="col-6 col-lg-2">
+				<input type="text" class="form-control" id="tipus" name="tipus" required="required">
+			</div>
+		</div></p>
+		
+		<p><div class="form-group row">
+			<label for="ferohely" class="col-3 col-lg-2 col-form-label">Férőhelyek száma: </label>
+			<div class="col-6 col-lg-2">
+				<input type="number" maxlength="1" class="form-control" id="ferohely" name="ferohely" min="1" max="9" pattern="[1-9]" required="required">
+			</div>
+		</div></p>
+	<p><a href="/"><button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Hozzáad</button></a>
+	<a href="/"><button type="button" class="btn btn-danger">Mégse</button></a></p>
+	</form>
+</div>
+
+<% include('footer') %>

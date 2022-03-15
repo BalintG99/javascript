@@ -1,0 +1,32 @@
+<%- include('header') %>
+
+<div class="container">
+	<h1> A céges flotta járművei: </h1>
+
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+			  <th scope="col">Rendszám</th>
+			  <th scope="col">Típus</th>
+			  <th scope="col">Férőhely</th>
+			  <th scope="col">Szerkesztés</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% cars.forEach(function(egyAuto){ %>
+			<tr>
+			  <td>	<%= egyAuto.rendszam %>	</td>
+			  <td>	<%= egyAuto.tipus %>		</td>
+			  <td>	<%= egyAuto.ferohely%>	</td>
+			  <td> <a href="/car/editcrew/<%= egyAuto._id %>"><button type="button" class="btn btn-primary"><i class="fas fa-users"></i></button></a>
+			  <a href="/car/editcar/<%= egyAuto._id %>"><button type="button" class="btn btn-warning"><i class="fas fa-wrench"></i></button></a></td>
+			</tr>
+		<% }); %>
+		</tbody>
+	</table>
+	
+	<a href="/car/new"><button type="button" class="btn btn-success"><i class="fas fa-car"></i> Autó hozzáadása</button></a>
+	<a href="/crew/list"><button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i> Személyzet szerkesztése </button></a>
+
+<% include('footer') %>
+</div>

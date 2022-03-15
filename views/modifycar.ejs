@@ -1,0 +1,32 @@
+<%- include('header') %>
+
+<div class="container">
+	<h1> Jármű adatainak szerkesztése: </h1>
+	<form method="POST">
+	<p>Kiválasztott jármű: <%= car.rendszam %></p>
+	<input type="hidden" value="<%= car.rendszam %>" id="rendszam" name="rendszam">
+	<p>Típus: <%= car.tipus %> </p>
+	<p><div class="form-group row">
+			<label for="tipus" class="col-1 col-form-label">Új: </label>
+			<div class="col-6 col-lg-3">
+				<input type="text" class="form-control" id="tipus" name="tipus"
+                       value="<%= (typeof car.tipus === 'undefined') ? '' : car.tipus %>" required="required">
+			</div>
+		</div></p>
+
+	<p>Férőhelyek száma: <%= car.ferohely %> </p>
+		<p><div class="form-group row">
+		<label for="ferohely" class="col-1 col-form-label">Új: </label>
+		<div class="col-1">
+			<input type="number" maxlength="1" min="1" max="9" pattern="[1-9]" class="form-control" id="ferohely" name="ferohely"
+                   value="<%= (typeof car.ferohely === 'undefined') ? '' : car.ferohely %>" required="required">
+		</div>
+	</div></p>
+
+	<p><button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Érvényesít </button>
+	<a href="/"><button type="button" class="btn btn-danger">Mégse</button></a>
+	<div align="right"><a href="/car/delcar/<%= car._id %>"><button type="button" class="btn btn-danger"><i class="fas fa-car-crash"></i> Autó törlése</button></a></div></p>
+	
+	</form>
+</div>
+<% include('footer') %>

@@ -1,0 +1,28 @@
+<%- include('header') %>
+
+<div class="container">
+	<h1> Dolgozói adatbázis: </h1>
+
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+			  <th scope="col">Név</th>
+			  <th scope="col">Beosztás</th>
+			  <th scope="col">Szerkesztés</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% crewlist.forEach(function(employee){ %>
+			<tr>
+			  <td> <%= employee.nev %>	</td>
+			  <td> <%= employee.beosztas %> </td>
+			  <td><a href="/crew/edit/<%= employee._id %>"><button type="button" class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a>
+              <a href="/crew/del/<%= employee._id %>"><button type="button" class="btn btn-danger"><i class="fas fa-user-times"></i></button></a></td>
+			</tr>
+		<% }); %>
+		</tbody>
+	</table>
+	
+	<a href="/crew/new"><button type="button" class="btn btn-success"><i class="fas fa-user-plus"></i> Új munkatárs</button></a>
+</div>
+<% include('footer') %>
